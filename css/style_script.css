@@ -1,0 +1,27 @@
+table {
+	border-style: solid;
+    border-collapse: collapse;
+}
+
+td {
+	border-style: solid;
+    border-collapse: collapse;
+    /*padding: 10px;*/
+}
+
+th{
+	background-color: #262E45;
+    color: #FFFFFF;
+    padding: 5px;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    width:100%; 
+    margin: 0; 
+    background-image: url("../img/wallpaper-pc.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
