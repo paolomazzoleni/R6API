@@ -13,6 +13,7 @@
     </head>
     <body><br>
     	<?php
+            session_start();
         	//THIS PART IS DONE TO GET THE PLAYER ID THAT WILL BE USED AFTER TO GET DETAILED STATS
         	//URL parts
         	$host = "https://api.r6stats.com/api/v1/players/";
@@ -171,6 +172,131 @@
                   }
                   $i++;
                 }
+              echo "</table><br>";
+              
+              $i = 0;
+              echo "<table align=\"center\" style=\"font-size:110%;\" bgcolor=\"#FFFFFF\">";
+              echo "<tr><th>IMAGE</th><th style=\"cursor: pointer;\">NAME</th><th style=\"cursor: pointer;\">DESCRIPTION</th><th style=\"cursor: pointer;\">VALUE</th></tr>";
+                foreach($content['operator_records'] as $opr){
+                  switch($opr['operator']['name']){
+                    case "Valkyrie":{
+                        $ability = $opr['stats']['specials']['operatorpvp_valkyrie_camdeployed'];
+                        $description = "Cam deployed";}break;
+                    case "Dokkaebi":{
+                        $ability = $opr['stats']['specials']['operatorpvp_phoneshacked'];
+                        $description = "Phone sacked";}break;
+                    case "Caveira":{
+                        $ability = $opr['stats']['specials']['operatorpvp_caveira_interrogations'];
+                        $description = "Interrogations";}break;
+                    case "Blackbeard":{
+                        $ability = $opr['stats']['specials']['operatorpvp_blackbeard_gunshieldblockdamage'];
+                        $description = "GunShield block damage";}break;
+                    case "Zofia":{
+                        $ability = $opr['stats']['specials']['operatorpvp_concussiongrenade_detonate'];
+                        $description = "Grenade detonated";}break;
+                    case "Vigil":{
+                        $ability = $opr['stats']['specials']['operatorpvp_attackerdrone_diminishedrealitymode'];
+                        $description = "Diminished reality mode";}break;
+                    case "Fuze":{
+                        $ability = $opr['stats']['specials']['operatorpvp_fuze_clusterchargekill'];
+                        $description = "Cluster charge kill";}break;
+                    case "Hibana":{
+                        $ability = $opr['stats']['specials']['operatorpvp_hibana_detonate_projectile'];
+                        $description = "Projectile detonated";}break;
+                    case "Pulse":{
+                        $ability = $opr['stats']['specials']['operatorpvp_pulse_heartbeatspot'];
+                        $description = "Heartbeat spot";}break;    
+                    case "Jackal":{
+                        $ability = $opr['stats']['specials']['operatorpvp_cazador_assist_kill'];
+                        $description = "Cazador assist";}break;
+                    case "Ela":{
+                        $ability = $opr['stats']['specials']['operatorpvp_concussionmine_detonate'];
+                        $description = "Concussion mine detonated";}break;
+                    case "Ash":{
+                        $ability = $opr['stats']['specials']['operatorpvp_ash_bonfirewallbreached'];
+                        $description = "Bonfire wall breached";}break;
+                    case "Frost":{
+                        $ability = $opr['stats']['specials']['operatorpvp_frost_dbno'];
+                        $description = "Trap hit";}break;
+                    case "Jäger":{
+                        $ability = $opr['stats']['specials']['operatorpvp_jager_gadgetdestroybycatcher'];
+                        $description = "Gadget destroyed";}break;
+                    case "Ying":{
+                        $ability = $opr['stats']['specials']['operatorpvp_dazzler_gadget_detonate'];
+                        $description = "Dazzler gadget detonated";}break;
+                    case "Lesion":{
+                        $ability = $opr['stats']['specials']['operatorpvp_caltrop_enemy_affected'];
+                        $description = "Caltrop enemy affected";}break;
+                    case "Echo":{
+                        $ability = $opr['stats']['specials']['operatorpvp_echo_enemy_sonicburst_affected'];
+                        $description = "Sonicburst enemy affected";}break;
+                    case "Smoke":{
+                        $ability = $opr['stats']['specials']['operatorpvp_smoke_poisongaskill'];
+                        $description = "Poison gas kill";}break;
+                    case "Rook":{
+                        $ability = $opr['stats']['specials']['operatorpvp_rook_armortakenourself']+$opr['stats']['specials']['operatorpvp_rook_armortakenteammate'];
+                        $description = "Given armor";}break;
+                    case "Mira":{
+                        $ability = $opr['stats']['specials']['operatorpvp_black_mirror_gadget_deployed'];
+                        $description = "Mirror gadget deployed";}break;
+                    case "Sledge":{
+                        $ability = $opr['stats']['specials']['operatorpvp_sledge_hammerkill'];
+                        $description = "Hammer kills";}break;
+                    case "Tachanka":{
+                        $ability = $opr['stats']['specials']['operatorpvp_tachanka_turretkill'];
+                        $description = "Turret kill";}break;
+                    case "Mute":{
+                        $ability = $opr['stats']['specials']['operatorpvp_mute_gadgetjammed'];
+                        $description = "Gadget jammed";}break;
+                    case "Kapkan":{
+                        $ability = $opr['stats']['specials']['operatorpvp_kapkan_boobytrapkill'];
+                        $description = "Booby trap kill";}break;
+                    case "Glaz":{
+                        $ability = $opr['stats']['specials']['operatorpvp_glaz_sniperkill'];
+                        $description = "Sniper kill";}break;
+                    case "Buck":{
+                        $ability = $opr['stats']['specials']['operatorpvp_buck_kill'];
+                        $description = "Buck shotgun kill";}break;
+                    case "Blitz":{
+                        $ability = $opr['stats']['specials']['operatorpvp_blitz_flashedenemy'];
+                        $description = "Flashed enemy (Killed - ".$opr['stats']['specials']['operatorpvp_blitz_flashfollowupkills'].")";}break;
+                    case "Capitão":{
+                        $ability = $opr['stats']['specials']['operatorpvp_capitao_lethaldartkills'];
+                        $description = "Lethal dart kill";}break;
+                    case "Bandit":{
+                        $ability = $opr['stats']['specials']['operatorpvp_bandit_batterykill'];
+                        $description = "Battery kill";}break;
+                    case "Twitch":{
+                        $ability = $opr['stats']['specials']['operatorpvp_twitch_shockdronekill'];
+                        $description = "Shock drone kill";}break;
+                    case "Castle":{
+                        $ability = $opr['stats']['specials']['operatorpvp_castle_kevlarbarricadedeployed'];
+                        $description = "Kevlar barricade deployed";}break;
+                    case "Montagne":{
+                        $ability = $opr['stats']['specials']['operatorpvp_montagne_shieldblockdamage'];
+                        $description = "Bullets stopped";}break;
+                    case "Thermite":{
+                        $ability = $opr['stats']['specials']['operatorpvp_thermite_chargekill'];
+                        $description = "Charge kill";}break;
+                    case "IQ":{
+                        $ability = $opr['stats']['specials']['operatorpvp_iq_gadgetspotbyef'];
+                        $description = "Gadget spotted";}break;
+                    case "Doc":{
+                        $ability = $opr['stats']['specials']['operatorpvp_doc_selfrevive']+$opr['stats']['specials']['operatorpvp_doc_teammaterevive'];
+                        $description = "Revives (self + mates)";}break;
+                    case "Thatcher":{
+                        $ability = $opr['stats']['specials']['operatorpvp_thatcher_gadgetdestroywithemp'];
+                        $description = "Gadget destroyed by EMP";}break;
+                  }
+                  if($i%2 == 0){
+                    echo "<tr bgcolor=\"#C3C6CC\"><td><img src=\"".$opr['operator']['images']['badge']."\" style=\"width:50px; height:50px;\"></td><td align=\"center\">".$opr['operator']['name']."</td><td align=\"center\">".$description."</td><td align=\"center\">".$ability."</td></tr>";
+                  }
+                  else{
+                   echo "<tr bgcolor=\"#FFFFFF\"><td><img src=\"".$opr['operator']['images']['badge']."\" style=\"width:50px; height:50px;\"></td><td align=\"center\">".$opr['operator']['name']."</td><td align=\"center\">".$description."</td><td align=\"center\">".$ability."</td></tr>";
+                  }
+                  $i++;
+                }
+              echo "</table><br>";
             }
         ?>
     </body>
