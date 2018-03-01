@@ -66,7 +66,7 @@
                 $seconds -= $minutes * 60;
                 $time_cas1 = "$hours:$minutes:$seconds";
               //ranked time
-                $seconds = $content['player']['stats']['ranked']['playtime'];
+                $seconds = $content1['player']['stats']['ranked']['playtime'];
                 $hours = floor($seconds/3600);
                 $seconds -= $hours * 3600;
                 $minutes = floor($seconds / 60);
@@ -81,7 +81,7 @@
                 $seconds -= $minutes * 60;
                 $time_cas2 = "$hours:$minutes:$seconds";
               //ranked time
-                $seconds = $content['player']['stats']['ranked']['playtime'];
+                $seconds = $content2['player']['stats']['ranked']['playtime'];
                 $hours = floor($seconds/3600);
                 $seconds -= $hours * 3600;
                 $minutes = floor($seconds / 60);
@@ -165,4 +165,4 @@
             }
         ?>
     </body>
-</html>
+</html>
